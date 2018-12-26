@@ -1,0 +1,6 @@
+name: gusto-poc
+recipe: pantheon
+config:
+  framework: wordpress
+  site: gusto-poc
+  id: f50a1275-c05e-48de-8058-78e482a5784f
