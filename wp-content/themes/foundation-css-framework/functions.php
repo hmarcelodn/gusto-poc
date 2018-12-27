@@ -170,3 +170,15 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 if ( class_exists( 'WooCommerce' ) ) {
 	require get_template_directory() . '/inc/woocommerce.php';
 }
+
+// Custom theme features
+function meeting_features(){
+	// Add theme support for featured images
+	add_theme_support('post-thumbnails');
+
+	// Crop the images
+	add_image_size('meetingLandscape', 400, 260, true);
+	add_image_size('meetingPortrait', 480, 650, true);
+}
+
+add_action('after_setup_theme', 'meeting_features');

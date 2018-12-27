@@ -5,7 +5,7 @@
  */
 function meeting_post_types(){
     register_post_type('meeting', array(
-        //'supports' => array('', '', ''),
+        'supports' => array('title', 'editor', 'thumbnail'),
         'rewrite' => array('slug' => 'meetings'),
         'public' => true,
         'labels' => array(
