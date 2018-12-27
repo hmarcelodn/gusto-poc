@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Register meeting post-type
+ *  Meeting post-type
  */
 function meeting_post_types(){
     register_post_type('meeting', array(
@@ -16,8 +16,27 @@ function meeting_post_types(){
             'all_items' => 'All Meetings',
             'singular_name' => 'Meeting'
         ),
-        'menu_icon' => 'dashicons-calendar'
+        'menu_icon' => 'dashicons-calendar',
+        'taxonomies' => array( 'category' )
     ));
 }
 
+/**
+ * Register Taxonomies
+ */
+function meeting_taxonomies(){
+    register_taxonomy(
+        '', 
+        array(''),
+        array(
+            'hierarchical' => true,
+            'show_ui' => true,
+            'query_var' => true,
+            'rewrite' => array('slug' => '')
+        )
+    );
+}
+
+// Actions
 add_action('init', 'meeting_post_types');
+add_action('init', 'meeting_taxonomies');
