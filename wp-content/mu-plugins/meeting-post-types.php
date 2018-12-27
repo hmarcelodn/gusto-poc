@@ -8,6 +8,7 @@ function meeting_post_types(){
         'supports' => array('title', 'editor', 'thumbnail'),
         'rewrite' => array('slug' => 'meetings'),
         'public' => true,
+        'has_archive' => true,
         'labels' => array(
             'name' => 'Meetings',
             'add_new_item' => 'Add New Meeting',
