@@ -1,0 +1,710 @@
+
+/* ------------------------------ Set Background - Margin Top, Bottom ------------------------------ */
+
+html {
+	background: #fefefe;
+}
+
+body {
+	background: transparent;
+}
+
+#page{
+	position: relative;
+	margin-top: 30px;
+	margin-bottom: 30px;
+}
+
+/* ------------------------------ Set Font all site ------------------------------ */
+
+html,
+
+button,
+input,
+optgroup,
+select,
+textarea,
+
+body,
+
+h1, .h1,
+h2, .h2,
+h3, .h3,
+h4, .h4,
+h5, .h5,
+h6, .h6{
+
+	font-family: 'Saira Semi Condensed', sans-serif;
+
+}
+
+
+
+/* ------------------------------ Link color ------------------------------ */
+
+
+a {
+	color: #1779ba;
+	-o-transition:.2s;
+	-ms-transition:.2s;
+	-moz-transition:.2s;
+	-webkit-transition:.2s;
+	transition:.2s;
+}
+
+a:visited {
+	color: #1779ba;
+}
+
+a:active {
+	color: #191970;
+}
+
+a:hover, a:focus {
+	color: #1468a0;
+	outline: none;
+	ie-dummy: expression(this.hideFocus=true);
+}
+
+
+/* ------------------------------ Mod Dot for Main menu ------------------------------ */
+
+
+.iot-dot-menu-a::after {
+
+	content: " \002B";
+
+}
+
+.iot-dot-menu ul .iot-dot-menu-a::after {
+
+	content: " \00BB";
+
+}
+
+
+.main-navigation ul ul{
+	background: #fff;
+	border-radius: 5px;
+	border: none;
+	box-shadow: 0 0 10px rgba(0,0,0,0.05);
+}
+
+
+
+/* ------------------------------ Dashicons ------------------------------ */
+
+
+.dashicons, .dashicons-before:before {
+	display: inherit;
+	width: inherit;
+	height: inherit;
+	font-size: inherit;
+	line-height: inherit;
+	font-family: dashicons;
+	text-decoration: inherit;
+	font-weight: inherit;
+	font-style: inherit;
+	vertical-align: inherit;
+	text-align: inherit;
+}
+
+
+
+
+/* ------------------------------ Offcanvas menu ------------------------------ */
+
+
+#iot-menu-left{
+	overflow-y: auto;
+	position:fixed;
+	height: 100%;
+	width: 250px;
+	left: -250px;
+	top:0;
+	background: #fff;
+	z-index: 6;
+}
+
+
+.iot-menu-left-filter {
+	position: fixed;
+	top: 0;
+	height: 100%;
+	width: 100%;
+	z-index: 5;
+	left: -100%;
+	background-color: rgba(0,0,0,.68);
+}
+
+
+
+/* Menu Left style */
+
+.iot-menu-left-ul{
+	margin-top: 10px;
+}
+
+.iot-menu-left-ul a{
+	font-size: 18px;
+	font-weight: normal;
+	color: #333;
+}
+
+ul.iot-menu-left-ul, .iot-menu-left-ul ul{
+	line-height: 2.0;
+	list-style: none;
+}
+
+
+
+/* Close button style */
+
+.iot-menu-left-close{
+	position: absolute;
+	right: 0;
+	top: 0;
+	padding: 10px;
+	font-size: 32px;
+	border: none;
+	background: none;
+	color: #333;
+}
+
+
+
+/* Toggle button */
+
+.iot-menu-left-open {
+	position: absolute;
+	top: 0;
+	right: 0;
+	line-height: 1;
+	text-decoration: none;
+	padding: 0.7rem 1rem;
+	display: none;
+	cursor: pointer;
+	border: none;
+	background: none;
+	font-size: 32px;
+	color: #333;
+}
+
+@media screen and (max-width: 63.9375em) {
+
+	#primary-menu{
+		display: none;
+	}
+
+	.iot-menu-left-open {
+		display: block;
+	}
+
+}
+
+
+
+/* ------------------------------ Input CSS ------------------------------ */
+
+/*button, input[type="button"], input[type="reset"], input[type="submit"] {*/
+/*border: 1px solid #01aaef;*/
+/*border-radius: 5px;*/
+/*background: #01aaef;*/
+/*color: rgba(255, 255, 255, 1);*/
+/*font-size: 12px;*/
+/*font-size: 0.75rem;*/
+/*line-height: 1;*/
+/*padding: .6em 1em .4em;*/
+/*}*/
+
+button, input[type="button"], input[type="reset"], input[type="submit"] {
+	border: 1px solid #01aaef;
+	border-radius: 20px;
+	background: #01aaef;
+	color: rgba(255, 255, 255, 1);
+	font-size: 12px;
+	font-size: 1rem;
+	line-height: 1;
+	padding: .45em 1.5em .4em;
+	cursor: pointer;
+}
+
+button:hover, input[type="button"]:hover, input[type="reset"]:hover, input[type="submit"]:hover {
+	border-color: #01aaef;
+}
+
+button:active, button:focus, input[type="button"]:active, input[type="button"]:focus, input[type="reset"]:active, input[type="reset"]:focus, input[type="submit"]:active, input[type="submit"]:focus {
+	border-color: #01aaef;
+	outline: none;
+}
+
+
+
+
+input[type="text"], input[type="email"], input[type="url"], input[type="password"], input[type="search"], input[type="number"], input[type="tel"], input[type="range"], input[type="date"], input[type="month"], input[type="week"], input[type="time"], input[type="datetime"], input[type="datetime-local"], input[type="color"], textarea {
+	padding-left: 20px;
+	border-radius: 20px;
+	/*border: 1px solid #ccc;*/
+	/*box-shadow: inset 0 1px 2px rgba(10, 10, 10, 0.1);*/
+	border: 1px solid #f9f9f9;
+	box-shadow: inset 0 0 0 rgba(0, 0, 0, 0.1);
+	background: #fff;
+}
+
+
+input[type="text"]:focus, input[type="email"]:focus, input[type="url"]:focus, input[type="password"]:focus, input[type="search"]:focus, input[type="number"]:focus, input[type="tel"]:focus, input[type="range"]:focus, input[type="date"]:focus, input[type="month"]:focus, input[type="week"]:focus, input[type="time"]:focus, input[type="datetime"]:focus, input[type="datetime-local"]:focus, input[type="color"]:focus, textarea:focus {
+	/*border: 1px solid #ccc;*/
+	/*box-shadow: inset 0 1px 2px rgba(10, 10, 10, 0.1);*/
+	border: 1px solid #f9f9f9;
+	box-shadow: inset 0 0 0 rgba(0, 0, 0, 0.1);
+	background: #fff;
+}
+
+select {
+	border: none;
+	border-radius: 20px;
+}
+
+
+input::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+	color: #333;
+}
+input::-moz-placeholder { /* Firefox 19+ */
+	color: #333;
+}
+input:-ms-input-placeholder { /* IE 10+ */
+	color: #333;
+}
+input:-moz-placeholder { /* Firefox 18- */
+	color: #333;
+}
+
+
+
+/* ------------------------------ Table CSS ------------------------------ */
+
+
+
+table {
+}
+
+table thead,
+table tbody,
+table tfoot {
+	border: 1px solid rgba(0,0,0,0.07);
+	background-color: rgba(0,0,0,0.01);
+}
+
+table thead {
+	background: rgba(0,0,0,0.02);
+	color: initial;
+}
+
+table tfoot {
+	background: rgba(0,0,0,0.07);
+	color: initial;
+}
+
+table tbody tr:nth-child(even) {
+	background-color: rgba(0,0,0,0.07);
+}
+
+table.unstriped tbody {
+	background-color: rgba(0,0,0,0.01);
+}
+
+table.unstriped tbody tr {
+	border-bottom: 1px solid rgba(0,0,0,0.07);
+	background-color: rgba(0,0,0,0.01);
+}
+
+table.hover thead tr:hover {
+	background-color: rgba(0,0,0,0.05);
+}
+
+table.hover tfoot tr:hover {
+	background-color: rgba(0,0,0,0.1);
+}
+
+table.hover tbody tr:hover {
+	background-color: rgba(0,0,0,0.005);
+}
+
+table.hover:not(.unstriped) tr:nth-of-type(even):hover {
+	background-color: rgba(0,0,0,0.1);
+}
+
+
+
+
+/* ------------------------------ Other CSS HTML ------------------------------ */
+
+
+
+code {
+	border: 1px solid rgba(0,0,0,0.2);
+	background-color: rgba(0,0,0,0.06);
+	color: initial;
+}
+
+hr {
+	border-bottom: 1px solid rgba(0,0,0,0.2);
+	background-color: rgba(0,0,0,0);
+}
+
+kbd {
+	background-color: rgba(0,0,0,0.06);
+	color: initial;
+}
+
+pre {
+	background: rgba(0,0,0,0.08);
+	padding: 20px;
+}
+
+
+mark, ins {
+	background: rgba(255,231,0,0.2);
+}
+
+blockquote {
+	border-left: 1px solid rgba(0,0,0,0.15);
+}
+
+blockquote, blockquote p {
+	color: rgba(0,0,0,0.5);
+}
+
+cite {
+	color: rgba(0,0,0,0.5);
+}
+
+
+/* ------------------------------ Other CSS WP ------------------------------ */
+
+
+
+
+.site-main .comment-navigation, .site-main .posts-navigation, .site-main .post-navigation {
+	/*padding: 0 10px;*/
+}
+
+.comment-body{
+	padding: 20px;
+}
+
+.comment-list, .comment-list .children{
+	list-style: none;
+	margin-left: 50px;
+}
+
+.comment-metadata, .comment-reply-link{
+	font-size: 11px;
+	text-transform: uppercase;
+	padding: 10px 0;
+}
+
+.avatar.photo{
+	border-radius: 50%;
+	margin-right: 10px;
+}
+
+.comment-form-comment label{
+	padding-bottom: 5px;
+	padding-left: 30px;
+}
+
+.comments-title, .comment-reply-title{
+	word-wrap: break-word;
+	font-size: 24px;
+	text-transform: uppercase;
+}
+
+div.comment-metadata:before{
+	content: "\f469";
+	font-family: Dashicons;
+	vertical-align: middle;
+	padding-right: 3px;
+	font-size: 14px;
+}
+
+div.reply:before{
+	content: "\f464";
+	font-family: Dashicons;
+	vertical-align: middle;
+	padding-right: 3px;
+	font-size: 14px;
+}
+
+
+
+/* ------------------------------ Logo ------------------------------ */
+
+#masthead{
+	margin-bottom: 30px;
+}
+
+.site-branding{
+	padding: 15px 20px 10px 20px;
+	position: relative;
+}
+
+.site-title{
+	font-size: 42px;
+	margin-bottom: 0.5rem;
+	line-height: 3.2rem;
+	text-transform: uppercase;
+}
+
+.site-description{
+	text-transform: uppercase;
+	font-size: 0.7rem;
+	margin-bottom: 0rem;
+	line-height: 1rem;
+	letter-spacing: 3px;
+}
+
+
+/* ------------------------------ Menu Top ------------------------------ */
+
+#site-navigation{
+
+}
+
+#primary-menu{
+	margin-top: 5px;
+	text-transform: uppercase;
+	font-size: 12px;
+	float: right;
+}
+
+#primary-menu > li > a{
+	/*text-transform: uppercase;*/
+	/*font-size: 12px;*/
+}
+
+#primary-menu > li.current-menu-item > a{
+	color: #01aaef;
+}
+
+/*#primary-menu:after{*/
+/*content: "\f486";*/
+/*font-family: Dashicons;*/
+/*vertical-align: middle;*/
+/*font-size: 26px;*/
+/*color: #fff;*/
+/*text-shadow: 0 1px 0 rgba(0,0,0,0.2);*/
+/*line-height: 45px;*/
+/*padding-left: 1rem;*/
+/*}*/
+
+#primary-menu > li:last-child > a{
+	padding-right: 0;
+}
+
+#primary-menu > li.current-menu-item:last-child > a{
+	/*padding-right: 1rem;*/
+}
+
+#primary-menu > li ul a{
+	color: #333;
+}
+
+.menu a{
+	line-height: 1.7;
+}
+
+/* ------------------------------ Entry ------------------------------ */
+
+#content{
+	margin-bottom: 70px;
+}
+
+#main article{
+	/*margin-bottom: 30px;*/
+}
+
+#main article.post{
+	margin-bottom: 30px;
+}
+
+.entry-title, .entry-meta, .entry-content, .entry-footer{
+	/*padding-right: 30px;*/
+	/*padding-left: 30px;*/
+}
+
+.entry-header{
+	padding-top: 30px;
+	padding-bottom: 10px;
+}
+
+.entry-title, .page-title{
+	word-wrap: break-word;
+	font-size: 24px;
+	text-transform: uppercase;
+}
+
+.entry-meta{
+	font-size: 11px;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	/*padding-bottom: 30px;*/
+	/*padding-top: 20px;*/
+}
+
+.entry-content{
+	/*padding-right: 30px;*/
+	/*padding-left: 30px;*/
+	/*padding-bottom: 30px;*/
+}
+
+.entry-footer{
+	font-size: 11px;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	padding-top: 20px;
+	/*padding-bottom: 30px;*/
+}
+
+#main article > *:last-child{
+	/*border-radius: 0 0 5px 5px;*/
+}
+
+.posted-on, .byline, .cat-links, .tags-links, .edit-link, .comments-link{
+	padding-right: 10px;
+}
+
+.posted-on:before{
+	/*content: "\f469";*/
+	content: "\f546";
+	font-family: Dashicons;
+	vertical-align: middle;
+	padding-right: 1px;
+	font-size: 14px;
+}
+
+.byline:before{
+	content: "\f338";
+	font-family: Dashicons;
+	vertical-align: middle;
+	padding-right: 1px;
+	font-size: 14px;
+}
+
+.cat-links:before{
+	content: "\f537";
+	font-family: Dashicons;
+	vertical-align: middle;
+	padding-right: 1px;
+	font-size: 14px;
+}
+
+.tags-links:before{
+	content: "\f323";
+	font-family: Dashicons;
+	vertical-align: middle;
+	padding-right: 1px;
+	font-size: 14px;
+}
+
+.edit-link:before{
+	content: "\f464";
+	font-family: Dashicons;
+	vertical-align: middle;
+	padding-right: 1px;
+	font-size: 14px;
+}
+
+.comments-link:before{
+	content: "\f130";
+	font-family: Dashicons;
+	vertical-align: middle;
+	padding-right: 1px;
+	font-size: 14px;
+}
+
+
+/* ------------------------------ Secondary ------------------------------ */
+
+
+#secondary{
+	/*color: #e6f0f9;*/
+}
+
+#secondary a {
+	/*color: #01aaef;*/
+}
+
+#secondary a:visited {
+	/*color: #01aaef;*/
+}
+
+
+
+#secondary section{
+	padding-top: 20px;
+	margin-bottom: 30px;
+}
+
+#secondary section > *{
+	/*padding: 0 30px 10px 30px;*/
+}
+
+#secondary section > h2{
+	position: relative;
+	font-size: 18px;
+	margin-bottom: 20px;
+	text-transform: uppercase;
+	/*padding: 0 30px 0 30px;*/
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+
+
+#secondary ul{
+	list-style: none;
+	margin-left: 0;
+	margin-bottom: 0;
+}
+
+#secondary li{
+	padding: 3px 0 3px 0;
+}
+
+#secondary li:before{
+	content: "\f345";
+	font-family: Dashicons;
+	vertical-align: bottom;
+	padding-right: 3px;
+}
+
+
+/* ------------------------------ Footer ------------------------------ */
+
+#colophon{
+	text-align: center;
+}
+
+
+
+
+/* ------------------------------ Mobile CSS here ------------------------------ */
+
+
+
+/* Small only */
+@media screen and (max-width: 39.9375em) {}
+
+/* Medium and up */
+@media screen and (min-width: 40em) {}
+
+/* Medium only */
+@media screen and (min-width: 40em) and (max-width: 63.9375em) {}
+
+/* Large and up */
+@media screen and (min-width: 64em) {}
+
+/* Large only */
+@media screen and (min-width: 64em) and (max-width: 74.9375em) {}
