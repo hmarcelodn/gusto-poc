@@ -21,22 +21,6 @@ function meeting_post_types(){
     ));
 }
 
-/**
- * Register Taxonomies
- */
-function meeting_taxonomies(){
-    register_taxonomy(
-        '', 
-        array(''),
-        array(
-            'hierarchical' => true,
-            'show_ui' => true,
-            'query_var' => true,
-            'rewrite' => array('slug' => '')
-        )
-    );
-}
-
 // Actions
 add_action('init', 'meeting_post_types');
-add_action('init', 'meeting_taxonomies');
+//add_action('init', 'meeting_taxonomies');
