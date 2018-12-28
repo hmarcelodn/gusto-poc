@@ -7,3 +7,16 @@
  Template:     understrap
  Text Domain:  understrap-child
 */
+
+.jumbotron {
+    color: white;
+    background-image: url("https://myob-gm-digital-production-blog-assets.s3.amazonaws.com/uploads/2017/09/payroll_hero.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 25rem;
+}
+
+h2 > a, a{
+    color: red;
+}
