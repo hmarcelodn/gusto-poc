@@ -61,6 +61,8 @@ $container = get_theme_mod( 'understrap_container_type' );
 
 			<main class="site-main" id="main">
 
+				<h1>From Our Blogs (Posts Post-Type)</h1>
+
 				<?php if ( have_posts() ) : ?>
 
 					<?php /* Start the Loop */ ?>
@@ -78,6 +80,25 @@ $container = get_theme_mod( 'understrap_container_type' );
 						?>
 
 					<?php endwhile; ?>
+
+					<h1>From Our Meetings (Meetings Post-Type)</h1>
+
+					<?php 
+					// Get custom post-type
+						$meetingsPosts = new WP_Query(array(
+							'posts_per_page' => 10,
+							'post_type' => 'meeting'
+						));
+
+						while($meetingsPosts->have_posts()){
+							$meetingsPosts->the_post(); ?>
+							<a href="<?php the_permalink(); ?>">
+								<?php
+									get_template_part( 'loop-templates/content', get_post_format() );
+								?>
+							</a>
+						<?php }
+					?>
 
 				<?php else : ?>
 
@@ -100,3 +121,4 @@ $container = get_theme_mod( 'understrap_container_type' );
 </div><!-- #index-wrapper -->
 
 <?php get_footer(); ?>
+<?php wp_reset_postdate(); ?>
