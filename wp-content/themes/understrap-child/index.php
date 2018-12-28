@@ -23,6 +23,15 @@ $container = get_theme_mod( 'understrap_container_type' );
 <?php if ( is_front_page() && is_home() ) : ?>
 	<?php get_template_part( 'global-templates/hero' ); ?>
 
+	<!-- Custom Gusto Hero -->
+	<div class="jumbotron jumbotron-fluid">
+		<div class="container">
+			<h1 class="display-4">Payroll made easy</h1>
+			<p>See why Gusto is simply the best online payroll.</p>
+				<button type="button" class="btn btn-primary">Try 1 month free</button>
+		</div>
+	</div>	
+
 	<!-- Custom Gusto News -->
 	<div class="home-top-news">
 		<div class="container">
