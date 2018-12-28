@@ -121,4 +121,4 @@ $container = get_theme_mod( 'understrap_container_type' );
 </div><!-- #index-wrapper -->
 
 <?php get_footer(); ?>
-<?php wp_reset_postdate(); ?>
+<?php wp_reset_postdata(); ?>
