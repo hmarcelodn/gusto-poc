@@ -22,6 +22,23 @@ $container = get_theme_mod( 'understrap_container_type' );
 
 <?php if ( is_front_page() && is_home() ) : ?>
 	<?php get_template_part( 'global-templates/hero' ); ?>
+
+	<!-- Custom Gusto News -->
+	<div class="home-top-news">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm">
+					Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+				</div>
+				<div class="col-sm">
+					Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+				</div>
+				<div class="col-sm">
+					<img src="https://www.tsheets.com/us_tsheets/uploads/2018/10/gusto-case-study.png"/>
+				</div>
+			</div>	
+		</div>	
+	</div>
 <?php endif; ?>
 
 <div class="wrapper" id="index-wrapper">
@@ -34,14 +51,6 @@ $container = get_theme_mod( 'understrap_container_type' );
 			<?php get_template_part( 'global-templates/left-sidebar-check' ); ?>
 
 			<main class="site-main" id="main">
-
-			<div class="jumbotron jumbotron-fluid">
-				<div class="container">
-					<h1 class="display-4">Payroll made easy</h1>
-					<p>See why Gusto is simply the best online payroll.</p>
-					<button type="button" class="btn btn-danger">Try 1 month free</button>
-				</div>
-			</div>
 
 				<?php if ( have_posts() ) : ?>
 
@@ -71,6 +80,9 @@ $container = get_theme_mod( 'understrap_container_type' );
 
 			<!-- The pagination component -->
 			<?php understrap_pagination(); ?>
+
+			<!-- Do the right sidebar check -->
+			<?php get_template_part( 'global-templates/right-sidebar-check' ); ?>
 
 		</div><!-- .row -->
 
