@@ -6,9 +6,9 @@
 @import "../src/sass/understrap/theme/contact-form7";// <-------- Loads some basic styling for contact form 7 plugin
 
 // Child Theme
-@import "1-settings/index"; // <--- SASS Variables
-@import "2-tools/index"; // <---
-@import "3-generic/index"; // <--- 
-@import "4-elements/index"; // <--- 
+@import "1-settings/index"; // <--- SASS Variables / Fonts (does not generate style output)
+@import "2-tools/index"; // <--- Functions / Mixins (does not generate style output)
+@import "3-generic/index"; // <--- Global Normalizers / Resets
+@import "4-elements/index"; // <--- Bare HTML elements
 @import "5-components/index"; // <--- Reusable components styling
 @import "6-helpers/index"; // <--- Helpers
