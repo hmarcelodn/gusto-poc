@@ -1,11 +1,14 @@
-@import "theme/child_theme_variables";  // <--------- Add your variables into this file. Also add variables to overwrite Bootstrap variables here
-@import "assets/bootstrap4";// <--------- Loads Bootstrap3 or Bootstrap4. Change from /bootstrap3 to /bootstrap4 Watch out! just for testing in the moment!
+// Vendor Files Child Theme
+@import "0-vendor/index"; // <--- Third Party Components
+
+// Parent Theme References
 @import "../src/sass/understrap/understrap/understrap";// <-------- Loads the UnderStrap defaults. Just a few classes to incorporate BS in WP
 @import "../src/sass/understrap/theme/contact-form7";// <-------- Loads some basic styling for contact form 7 plugin
 
-//Optional files - If you don´t use the corresponding scripts/fonts comment em out
-@import "assets/font-awesome"; // <------- Font Awesome Icon font
-@import "assets/underscores"; // <------- Underscores media styles
-
-// Any additional imported files //
-@import "theme/child_theme";  // <--------- Add your styles into this file
+// Child Theme
+@import "1-settings/index"; // <--- SASS Variables
+@import "2-tools/index"; // <---
+@import "3-generic/index"; // <--- 
+@import "4-elements/index"; // <--- 
+@import "5-components/index"; // <--- Reusable components styling
+@import "6-helpers/index"; // <--- Helpers
