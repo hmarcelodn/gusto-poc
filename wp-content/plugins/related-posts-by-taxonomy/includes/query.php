@@ -80,8 +80,10 @@ function km_rpbt_query_related_posts( $post_id, $taxonomies = 'category', $args 
 	array_unique($manual_related_posts_id);
 
 	$manual_post_ids_sql = '';
-	$manual_post_ids_sql = "OR ($wpdb->posts.ID";
-	$manual_post_ids_sql .= ' IN (' . implode( ', ', $manual_related_posts_id ) . '))';
+	if(count($manual_related_posts_id) > 0){
+		$manual_post_ids_sql = "OR ($wpdb->posts.ID";
+		$manual_post_ids_sql .= ' IN (' . implode( ', ', $manual_related_posts_id ) . '))';
+	}
 
 	// Check if this is a query for unrelated terms.
 	$unrelated_terms = ! $related && $args['terms'];
