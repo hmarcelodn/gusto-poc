@@ -32,3 +32,27 @@ function add_child_theme_textdomain() {
     load_child_theme_textdomain( 'understrap-child', get_stylesheet_directory() . '/languages' );
 }
 add_action( 'after_setup_theme', 'add_child_theme_textdomain' );
+
+// Add new custom format for related-posts-articles
+add_filter( 'related_posts_by_taxonomy_template', 'rpbt_gusto_format_template', 10, 3 );
+function rpbt_gusto_format_template( $template, $type, $format ) {
+    if ( isset( $format ) && ( 'gusto' === $format ) ) {
+        return 'related-posts-gusto.php';
+    }
+    return $template;
+}
+
+// Create new format thumbnail_excerpt for use in widget and shortcode
+add_action( 'wp_loaded', 'rpbt_gusto_format', 11 );
+ 
+function rpbt_gusto_format() {
+ 
+    if ( !class_exists( 'Related_Posts_By_Taxonomy_Defaults' ) ) {
+        return;
+    }
+ 
+    $defaults = Related_Posts_By_Taxonomy_Defaults::get_instance();
+ 
+    // Add the new format .
+    $defaults->formats['gusto'] = __( 'Gusto' );
+}

@@ -61,37 +61,21 @@ $container = get_theme_mod( 'understrap_container_type' );
 
 			<main class="site-main" id="main">
 
-				<h1>From Our Blogs (Posts Post-Type)</h1>
+				<!-- <h1>From Our Blogs (Posts Post-Type)</h1> -->
 
 				<?php if ( have_posts() ) : ?>
 
-					<?php /* Start the Loop */ ?>
-
-					<?php while ( have_posts() ) : the_post(); ?>
-
-						<?php
-
-						/*
-						 * Include the Post-Format-specific template for the content.
-						 * If you want to override this in a child theme, then include a file
-						 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-						 */
-						get_template_part( 'loop-templates/content', get_post_format() );
-						?>
-
-					<?php endwhile; ?>
-
-					<h1>From Our Meetings (Meetings Post-Type)</h1>
+					<h1>Articles</h1>
 
 					<?php 
-					// Get custom post-type
-						$meetingsPosts = new WP_Query(array(
+						// Get custom post-type
+						$articles = new WP_Query(array(
 							'posts_per_page' => 10,
-							'post_type' => 'meeting'
+							'post_type' => 'article'
 						));
 
-						while($meetingsPosts->have_posts()){
-							$meetingsPosts->the_post(); ?>
+						while($articles->have_posts()){
+							$articles->the_post(); ?>
 							<a href="<?php the_permalink(); ?>">
 								<?php
 									get_template_part( 'loop-templates/content', get_post_format() );

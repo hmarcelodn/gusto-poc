@@ -68,6 +68,21 @@ function km_rpbt_query_related_posts( $post_id, $taxonomies = 'category', $args 
 	$args       = km_rpbt_sanitize_args( $args );
 	$related    = $args['related'];
 
+	// Get the current post and its relation
+	$current_post = get_post($post_id);
+	$manual_related_posts = get_field('related_ctas');
+	$manual_related_posts_id = array();
+
+	foreach($manual_related_posts as $manual_related_post){
+		array_push($manual_related_posts_id, $manual_related_post->ID);
+	}
+
+	array_unique($manual_related_posts_id);
+
+	$manual_post_ids_sql = '';
+	$manual_post_ids_sql = "OR ($wpdb->posts.ID";
+	$manual_post_ids_sql .= ' IN (' . implode( ', ', $manual_related_posts_id ) . '))';
+
 	// Check if this is a query for unrelated terms.
 	$unrelated_terms = ! $related && $args['terms'];
 
@@ -248,7 +263,7 @@ function km_rpbt_query_related_posts( $post_id, $taxonomies = 'category', $args 
 	 */
 	$join_sql  = apply_filters_ref_array( 'related_posts_by_taxonomy_posts_join', array( $join_sql, $post_id, $taxonomies, $args ) );
 
-	$where_sql = "{$where_sql} {$post_ids_sql}{$limit_date_sql} AND ( $term_ids_sql ){$meta_where_sql}";
+	$where_sql = "{$where_sql} {$post_ids_sql}{$limit_date_sql} AND ( $term_ids_sql ){$meta_where_sql}{$manual_post_ids_sql}";
 
 	/**
 	 * Filter the WHERE clause of the related posts query.

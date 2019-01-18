@@ -61,6 +61,7 @@ function gusto_post_types(){
         'menu_icon' => 'dashicons-format-aside',
         'taxonomies' => array( 'category' )
     ));     
+    
 }
 
 /**
