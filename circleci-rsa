@@ -1,21 +1,4 @@
-version: 2
-jobs:
-  build:
-    docker:
-      - image: circleci/node:8
-    working_directory: ~/repo      
-    steps:
-      - checkout    
-  deploy_pantheon:
-    docker:
-      - image: circleci/node:8
-        environment:
-          PANTHEON_TOKEN: 0AcZWq5i3Rp4_rpZ8sBLREynKFnlzb7RHxo4UE7q_sUyw   
-          SITE_UUID: 215b7124-5309-4583-9496-af9ce6974450     
-    steps:
-      - add_ssh_keys:
-          fingerprints:
-            - "-----BEGIN RSA PRIVATE KEY-----
+-----BEGIN RSA PRIVATE KEY-----
 MIIJKAIBAAKCAgEA8lVpTsBWAGS6SchmTGWdw+/nHHnhOkvCTD/u9Bexj7tguQ5P
 BNpHPqTCg+R6EcAYn1sZtAab88rJLpPFpzcBDEbzDlb2x5gNEfsmQK33GoQ21bSi
 LzDGUTsnJjTYRX8GDXTSnSy8hoxqTxiQP9DjYPNJ6mcTbDVHG9Q3AAxRwR6cEUhF
@@ -66,19 +49,3 @@ z7BaoRPsCbOeqxgnEs3mhUiFp0jnzHGQlYkyN5kffIiDM2gW+86ueEch3CcswJWw
 /Y0Ow6UPJsfw/LJg5jdxQ+N2gxHwTBZcd+r2t02bcAgA34wKLFU7p+Vthi6hpYcP
 LNN2sqCRRrLVA5ZArtR59hb2GjOj/1OVAtbtPTOS8eINBSrQGhFEQoR6Miw=
 -----END RSA PRIVATE KEY-----
-"      
-      - checkout   
-      - run:
-          name: Deploying Pantheon Dev Environment
-          command: |
-            # Origin=pantheon
-            # Github=github
-            git fetch origin &&
-            git merge -m "Merge pantheon to master in github" github/master && 
-            git push github HEAD:master &&              
-            git push origin HEAD:master
-workflows:
-  version: 2
-  build_and_deploy:
-    jobs:      
-      - deploy_pantheon        
