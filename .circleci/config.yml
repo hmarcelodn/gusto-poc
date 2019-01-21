@@ -77,6 +77,7 @@ LNN2sqCRRrLVA5ZArtR59hb2GjOj/1OVAtbtPTOS8eINBSrQGhFEQoR6Miw=
             # git merge -m "Merge pantheon to master in github" github/master && 
             # git push github HEAD:master &&              
             # git push origin HEAD:master
+            git remote add pantheon ssh://codeserver.dev.f50a1275-c05e-48de-8058-78e482a5784f@codeserver.dev.f50a1275-c05e-48de-8058-78e482a5784f.drush.in:2222/~/repository.git
             git remote -v
 workflows:
   version: 2
