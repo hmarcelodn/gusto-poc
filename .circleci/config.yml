@@ -22,6 +22,10 @@ jobs:
           command: |
             # Origin=pantheon
             # Github=github
+            git config --global user.email "marcelo.delnegro@melon.tech"
+            git config --global user.name "marcelo.delnegro"
+            echo 'Host *' >> /root/.ssh/config
+            echo '   StrictHostKeyChecking no' >> /root/.ssh/config            
             git remote add pantheon ssh://codeserver.dev.f50a1275-c05e-48de-8058-78e482a5784f@codeserver.dev.f50a1275-c05e-48de-8058-78e482a5784f.drush.in:2222/~/repository.git
             git remote -v
 
