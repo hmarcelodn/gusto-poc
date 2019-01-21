@@ -1,0 +1,27 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/node:8
+    working_directory: ~/repo      
+    steps:
+      - checkout    
+  deploy_pantheon:
+    docker:
+      - image: circleci/node:8  
+    steps:
+      - checkout   
+      - run:
+          name: Deploying Pantheon Dev Environment
+          command: |
+            # Origin=pantheon
+            # Github=github
+            git fetch origin &&
+            git merge -m "Merge pantheon to master in github" github/master && 
+            git push github HEAD:master &&              
+            git push origin HEAD:master
+workflows:
+  version: 2
+  build_and_deploy:
+    jobs:      
+      - deploy_pantheon        
