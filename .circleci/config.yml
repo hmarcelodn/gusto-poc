@@ -60,7 +60,7 @@ jobs:
             - "30:26:cc:53:4c:7f:21:41:00:43:24:e5:96:57:38:62"      
       - checkout   
       - attach_workspace:
-          at: ~/repo/workspace
+          at: /root/project/workspace
       - run:
           name: Deploying Pantheon Dev Environment
           command: |
