@@ -11,7 +11,8 @@ jobs:
       - image: quay.io/pantheon-public/php-ci:latest
         environment:
           PANTHEON_TOKEN: 0AcZWq5i3Rp4_rpZ8sBLREynKFnlzb7RHxo4UE7q_sUyw   
-          SITE_UUID: f50a1275-c05e-48de-8058-78e482a5784f     
+          SITE_UUID: f50a1275-c05e-48de-8058-78e482a5784f
+          TERMINUS_SITE: gusto-poc     
     steps:
       - add_ssh_keys:
           fingerprints:
