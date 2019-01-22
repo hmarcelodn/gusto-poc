@@ -28,7 +28,7 @@ jobs:
             composer create-project -n -d $HOME/.terminus/plugins pantheon-systems/terminus-build-tools-plugin:~1
 
             if [[ -z "${CIRCLE_PR_NUMBER}" ]]; then
-              terminus build:env:create -n "$TERMINUS_SITE.dev" $CIRCLE_BRANCH --yes --clone-content --db-only --notify="$NOTIFY"
+              terminus build:env:create -n "$TERMINUS_SITE.dev" $CIRCLE_BRANCH --yes --clone-content --db-only
             fi
             # # Configure Pantheon Repository
             echo 'Host *' >> ~/.ssh/config
