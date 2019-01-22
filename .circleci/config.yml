@@ -27,13 +27,9 @@ jobs:
             composer create-project -n -d $HOME/.terminus/plugins pantheon-systems/terminus-composer-plugin:~1
             composer create-project -n -d $HOME/.terminus/plugins pantheon-systems/terminus-build-tools-plugin:~1
 
-            git config --global user.email "hmdelnegro@gmail.com"
-            git config --global user.name "Marcelo"
-
             # Configure Pantheon Repository
             echo 'Host *' >> ~/.ssh/config
             echo '   StrictHostKeyChecking no' >> ~/.ssh/config  
-            ssh-add -K ~/.ssh/id_rsa
 
             if [[ -z "${CIRCLE_PR_NUMBER}" ]]; then
               terminus build:env:create -n "$TERMINUS_SITE.dev" $CIRCLE_BRANCH --yes --clone-content --db-only
