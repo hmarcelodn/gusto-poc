@@ -26,7 +26,7 @@ $container = get_theme_mod( 'understrap_container_type' );
 	<!-- Custom Gusto Hero -->
 	<div class="jumbotron jumbotron-fluid">
 		<div class="container">
-			<h1 class="display-4">Payroll made easy</h1>
+			<h1 class="display-4">Payroll made easy - POC</h1>
 			<p>See why Gusto is simply the best online payroll.</p>
 				<button type="button" class="btn btn-primary">Try 1 month free</button>
 		</div>
