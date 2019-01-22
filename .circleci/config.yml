@@ -23,17 +23,14 @@ jobs:
             # Origin=pantheon
             # Github=github
             git config --global user.email "marcelo.delnegro@melon.tech"
-            git config --global user.name "marcelo.delnegro"
+            git config --global user.name "Marcelo Del Negro"
             sudo echo 'Host *' >> /root/.ssh/config
             sudo echo '   StrictHostKeyChecking no' >> /root/.ssh/config            
             git remote add pantheon ssh://codeserver.dev.f50a1275-c05e-48de-8058-78e482a5784f@codeserver.dev.f50a1275-c05e-48de-8058-78e482a5784f.drush.in:2222/~/repository.git
             git remote -v
 
-            git fetch pantheon 
-            # &&
-            # git merge -m "Merge changes from pantheon into github" pantheon/master &&    
-            # git push origin HEAD:master &&
-            # git push pantheon HEAD:master;         
+            git pull origin master 
+            git push pantheon master      
 workflows:
   version: 2
   build_and_deploy:
