@@ -18,6 +18,7 @@ jobs:
           fingerprints:
             - "30:26:cc:53:4c:7f:21:41:00:43:24:e5:96:57:38:62"      
       - checkout   
+      - run: mkdir -p workspace
       - run:
           name: Deploying Pantheon Dev Environment
           command: |
@@ -37,6 +38,7 @@ jobs:
             if [ -n "$CIRCLE_PR_NUMBER" ]; then
               echo "It is a PR"
               echo $CIRCLE_PR_NUMBER
+              echo $CIRCLE_PR_NUMBER > workspace/circle-pr-number
               terminus build:env:create -n "$TERMINUS_SITE.dev" ci-$CIRCLE_PR_NUMBER --yes --clone-content --db-only
             fi
           
@@ -45,7 +47,11 @@ jobs:
 
             # # Push Pantheon
             # git pull origin master 
-            # git push pantheon master   
+            # git push pantheon master  
+      - persist_to_workspace:
+          root: workspace
+          paths:
+            - circle-pr-number            
   merge_multidev_to_dev:
     docker:
       - image: quay.io/pantheon-public/php-ci:latest
@@ -58,6 +64,8 @@ jobs:
           fingerprints:
             - "30:26:cc:53:4c:7f:21:41:00:43:24:e5:96:57:38:62"      
       - checkout   
+      - attach_workspace:
+          at: /workspace
       - run:
           name: Deploying Pantheon Dev Environment
           command: |
@@ -66,7 +74,7 @@ jobs:
             # mkdir -p $HOME/.terminus/plugins
             # composer create-project -n -d $HOME/.terminus/plugins pantheon-systems/terminus-composer-plugin:~1
             # composer create-project -n -d $HOME/.terminus/plugins pantheon-systems/terminus-build-tools-plugin:~1   
-            
+            cat /workspace/circle-pr-number
             echo "Merge"
             echo $CIRCLE_PR_NUMBER
 workflows:
