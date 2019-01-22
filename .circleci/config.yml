@@ -21,8 +21,8 @@ jobs:
           name: Deploying Pantheon Dev Environment
           command: |
             # Install Terminus
-            curl -O https://raw.githubusercontent.com/pantheon-systems/terminus-installer/master/builds/installer.phar && php installer.phar install
-            alias terminus=/home/circleci/project/vendor/bin/terminus
+            # curl -O https://raw.githubusercontent.com/pantheon-systems/terminus-installer/master/builds/installer.phar && php installer.phar install
+            # alias terminus=/home/circleci/project/vendor/bin/terminus
             terminus auth:login --machine-token=$PANTHEON_TOKEN
             mkdir -p $HOME/.terminus/plugins
             composer create-project -n -d $HOME/.terminus/plugins pantheon-systems/terminus-composer-plugin:~1
