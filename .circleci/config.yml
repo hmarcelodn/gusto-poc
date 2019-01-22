@@ -70,13 +70,14 @@ jobs:
           name: Deploying Pantheon Dev Environment
           command: |
             # Terminus
-            # terminus auth:login --machine-token=$PANTHEON_TOKEN
-            # mkdir -p $HOME/.terminus/plugins
-            # composer create-project -n -d $HOME/.terminus/plugins pantheon-systems/terminus-composer-plugin:~1
-            # composer create-project -n -d $HOME/.terminus/plugins pantheon-systems/terminus-build-tools-plugin:~1   
-            cat /workspace/circle-pr-number
+            terminus auth:login --machine-token=$PANTHEON_TOKEN
+            mkdir -p $HOME/.terminus/plugins
+            composer create-project -n -d $HOME/.terminus/plugins pantheon-systems/terminus-composer-plugin:~1
+            composer create-project -n -d $HOME/.terminus/plugins pantheon-systems/terminus-build-tools-plugin:~1   
+            GITHUB_PR_NUMBER=$(cat /workspace/circle-pr-number)
             echo "Merge"
-            echo $CIRCLE_PR_NUMBER
+            echo $GITHUB_PR_NUMBER
+            terminus build:env:merge $TERMINUS_SITE.${GITHUB_PR_NUMBER}
 workflows:
   version: 2
   build_and_deploy:
