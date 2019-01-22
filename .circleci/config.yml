@@ -21,9 +21,7 @@ jobs:
       - run:
           name: Deploying Pantheon Dev Environment
           command: |
-            # Install Terminus
-            # curl -O https://raw.githubusercontent.com/pantheon-systems/terminus-installer/master/builds/installer.phar && php installer.phar install
-            # alias terminus=/home/circleci/project/vendor/bin/terminus
+            # Terminus
             terminus auth:login --machine-token=$PANTHEON_TOKEN
             mkdir -p $HOME/.terminus/plugins
             composer create-project -n -d $HOME/.terminus/plugins pantheon-systems/terminus-composer-plugin:~1
@@ -33,8 +31,8 @@ jobs:
               terminus build:env:create -n "$TERMINUS_SITE.dev" $CIRCLE_BRANCH --yes --clone-content --db-only --notify="$NOTIFY"
             fi
             # # Configure Pantheon Repository
-            # echo 'Host *' >> ~/.ssh/config
-            # echo '   StrictHostKeyChecking no' >> ~/.ssh/config            
+            echo 'Host *' >> ~/.ssh/config
+            echo '   StrictHostKeyChecking no' >> ~/.ssh/config            
             # git remote add pantheon ssh://codeserver.dev.f50a1275-c05e-48de-8058-78e482a5784f@codeserver.dev.f50a1275-c05e-48de-8058-78e482a5784f.drush.in:2222/~/repository.git
             # git remote -v
 
