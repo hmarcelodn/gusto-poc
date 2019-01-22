@@ -31,6 +31,9 @@ jobs:
             echo 'Host *' >> ~/.ssh/config
             echo '   StrictHostKeyChecking no' >> ~/.ssh/config  
 
+            git config --global user.email "hmdelnegro@gmail.com"
+            git config --global user.name "Marcelo"
+
             if [[ -z "${CIRCLE_PR_NUMBER}" ]]; then
               terminus build:env:create -n "$TERMINUS_SITE.dev" $CIRCLE_BRANCH --yes --clone-content --db-only
             fi
