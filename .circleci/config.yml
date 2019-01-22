@@ -27,10 +27,7 @@ jobs:
             mkdir -p $HOME/.terminus/plugins
             composer create-project -n -d $HOME/.terminus/plugins pantheon-systems/terminus-composer-plugin:~1
             composer create-project -n -d $HOME/.terminus/plugins pantheon-systems/terminus-build-tools-plugin:~1
-            echo "Testing"
-            echo $CIRCLE_BRANCH
-            echo $CIRCLE_BUILD_NUM
-            #terminus build:env:create -n "$TERMINUS_SITE.dev" $CIRCLE_BRANCH --yes --clone-content --db-only --notify="$NOTIFY"
+            terminus build:env:create -n "$TERMINUS_SITE.dev" $CIRCLE_BRANCH --yes --clone-content --db-only --notify="$NOTIFY"
 
             # # Configure Pantheon Repository
             # echo 'Host *' >> ~/.ssh/config
@@ -46,3 +43,7 @@ workflows:
   build_and_deploy:
     jobs:      
       - deploy_pantheon        
+          filters:
+            branches:
+              only:
+                - feature/*      
