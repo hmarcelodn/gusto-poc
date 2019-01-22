@@ -27,8 +27,10 @@ jobs:
             mkdir -p $HOME/.terminus/plugins
             composer create-project -n -d $HOME/.terminus/plugins pantheon-systems/terminus-composer-plugin:~1
             composer create-project -n -d $HOME/.terminus/plugins pantheon-systems/terminus-build-tools-plugin:~1
-            terminus build:env:create -n "$TERMINUS_SITE.dev" $CIRCLE_BRANCH --yes --clone-content --db-only --notify="$NOTIFY"
 
+            if [[ -z "${CIRCLE_PR_NUMBER}" ]]; then
+              terminus build:env:create -n "$TERMINUS_SITE.dev" $CIRCLE_BRANCH --yes --clone-content --db-only --notify="$NOTIFY"
+            fi
             # # Configure Pantheon Repository
             # echo 'Host *' >> ~/.ssh/config
             # echo '   StrictHostKeyChecking no' >> ~/.ssh/config            
@@ -42,8 +44,4 @@ workflows:
   version: 2
   build_and_deploy:
     jobs:      
-      - deploy_pantheon        
-          filters:
-            branches:
-              only:
-                - feature/*      
+      - deploy_pantheon 
