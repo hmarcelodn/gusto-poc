@@ -31,7 +31,7 @@ $container = get_theme_mod( 'understrap_container_type' );
 						get_template_part( 'loop-templates/content', 'single' ); 
 
 						/// related_posts_by_tax short_code article
-						echo do_shortcode('[related_posts_by_tax format="gusto" post_types="article, cta"]');
+						// echo do_shortcode('[related_posts_by_tax format="gusto" post_types="article, cta"]');
 						
 						/// related_posts_by_tax short_code cta
 						// echo do_shortcode('[related_posts_by_tax format="gusto" post_types="cta"]');
