@@ -76,8 +76,7 @@ workflows:
       - deploy_multidev:
           filters:  
             branches:
-              only:  
-                - /^gus-*/
+              only:  /^gus-*/
       - merge_multidev_to_dev:
           filters:  
             branches:
