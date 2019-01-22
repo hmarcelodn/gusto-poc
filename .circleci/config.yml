@@ -69,10 +69,12 @@ jobs:
             mkdir -p $HOME/.terminus/plugins
             composer create-project -n -d $HOME/.terminus/plugins pantheon-systems/terminus-composer-plugin:~1
             composer create-project -n -d $HOME/.terminus/plugins pantheon-systems/terminus-build-tools-plugin:~1   
-            GITHUB_PR_NUMBER=$(cat /workspace/circle-pr-number)
+            GITHUB_PR_NUMBER=$(cat /root/project/workspace/circle-pr-number)
             echo "Merge"
             echo $GITHUB_PR_NUMBER
             terminus build:env:merge $TERMINUS_SITE.${GITHUB_PR_NUMBER}
+            echo "PR:"
+            echo $CIRCLE_PR_NUMBER
 workflows:
   version: 2
   build_and_deploy:
