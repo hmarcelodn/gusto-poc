@@ -77,7 +77,7 @@ workflows:
           filters:  
             branches:
               only:  
-                - /^gus-/
+                - /^gus-*/
       - merge_multidev_to_dev:
           filters:  
             branches:
