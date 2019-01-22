@@ -34,7 +34,7 @@ jobs:
             echo 'Host *' >> ~/.ssh/config
             echo '   StrictHostKeyChecking no' >> ~/.ssh/config  
 
-            if [[ -z "${CIRCLE_PR_NUMBER}" ]]; then
+            if [[ -z "${CIRCLE_PULL_REQUEST}" ]]; then
               terminus build:env:create -n "$TERMINUS_SITE.dev" $CIRCLE_BRANCH --yes --clone-content --db-only
             fi
           
