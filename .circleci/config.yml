@@ -2,13 +2,13 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/node:8
+      - image: circleci/php
     working_directory: ~/repo      
     steps:
       - checkout    
   deploy_pantheon:
     docker:
-      - image: circleci/node:8
+      - image: circleci/php
         environment:
           PANTHEON_TOKEN: 0AcZWq5i3Rp4_rpZ8sBLREynKFnlzb7RHxo4UE7q_sUyw   
           SITE_UUID: f50a1275-c05e-48de-8058-78e482a5784f     
