@@ -1,11 +1,5 @@
 version: 2
-jobs:
-  build:
-    docker:
-      - image: quay.io/pantheon-public/php-ci:latest
-    working_directory: ~/repo      
-    steps:
-      - checkout    
+jobs: 
   deploy_multidev:
     docker:
       - image: quay.io/pantheon-public/php-ci:latest
@@ -41,6 +35,7 @@ jobs:
               terminus build:env:create -n "$TERMINUS_SITE.dev" ci-$CIRCLE_PR_NUMBER --yes --clone-content --db-only
             fi
           
+            pwd
             echo $CIRCLE_PR_NUMBER > workspace/circle-pr-number
             # git remote add pantheon ssh://codeserver.dev.f50a1275-c05e-48de-8058-78e482a5784f@codeserver.dev.f50a1275-c05e-48de-8058-78e482a5784f.drush.in:2222/~/repository.git
             # git remote -v
