@@ -35,7 +35,9 @@ jobs:
             echo '   StrictHostKeyChecking no' >> ~/.ssh/config  
 
             if [ -n "$CIRCLE_PR_NUMBER" ]; then
-              terminus build:env:create -n "$TERMINUS_SITE.dev" $CIRCLE_BRANCH --yes --clone-content --db-only
+              echo "It is a PR"
+              echo $CIRCLE_PR_NUMBER
+              terminus build:env:create -n "$TERMINUS_SITE.dev" ci-$CIRCLE_PR_NUMBER --yes --clone-content --db-only
             fi
           
             # git remote add pantheon ssh://codeserver.dev.f50a1275-c05e-48de-8058-78e482a5784f@codeserver.dev.f50a1275-c05e-48de-8058-78e482a5784f.drush.in:2222/~/repository.git
@@ -43,9 +45,42 @@ jobs:
 
             # # Push Pantheon
             # git pull origin master 
-            # git push pantheon master     
+            # git push pantheon master   
+  merge_multidev_to_dev:
+    docker:
+      - image: quay.io/pantheon-public/php-ci:latest
+        environment:
+          PANTHEON_TOKEN: 0AcZWq5i3Rp4_rpZ8sBLREynKFnlzb7RHxo4UE7q_sUyw   
+          SITE_UUID: f50a1275-c05e-48de-8058-78e482a5784f
+          TERMINUS_SITE: gusto-poc     
+    steps:
+      - add_ssh_keys:
+          fingerprints:
+            - "30:26:cc:53:4c:7f:21:41:00:43:24:e5:96:57:38:62"      
+      - checkout   
+      - run:
+          name: Deploying Pantheon Dev Environment
+          command: |
+            # Terminus
+            terminus auth:login --machine-token=$PANTHEON_TOKEN
+            mkdir -p $HOME/.terminus/plugins
+            composer create-project -n -d $HOME/.terminus/plugins pantheon-systems/terminus-composer-plugin:~1
+            composer create-project -n -d $HOME/.terminus/plugins pantheon-systems/terminus-build-tools-plugin:~1   
+            
+            echo "Merge"
+            echo $CIRCLE_PR_NUMBER
 workflows:
   version: 2
   build_and_deploy:
-    jobs:      
-      - deploy_pantheon 
+    jobs:
+      - deploy_multidev:
+          filters:  
+            branches:
+              only:  
+                - gus-*
+      - merge_multidev_to_dev:
+          filters:  
+            branches:
+              only:  
+                - master                
+          
